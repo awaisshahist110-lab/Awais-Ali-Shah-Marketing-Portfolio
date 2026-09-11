@@ -170,6 +170,8 @@ p:last-child{margin-bottom:0}
 .shot figure{margin:0}
 .shot img{border:1px solid var(--rule);background:var(--sand)}
 .shot figcaption{font-size:14px;color:var(--ink-2);margin-top:10px;line-height:1.45}
+.shot figcaption a{color:var(--ink);font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--accent);white-space:nowrap}
+.shot figcaption a:hover{color:var(--accent)}
 
 /* ---------- before / after slider ---------- */
 .ba{margin-top:clamp(32px,4vw,50px)}

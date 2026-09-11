@@ -12,7 +12,7 @@ about.html          Background and track record
 contact.html        Contact details and fit criteria
 assets/css/site.css All styling, design tokens at the top of the file
 assets/js/site.js   Before/after comparison sliders
-assets/img/         54 screenshots, compressed and renamed
+assets/img/         52 screenshots, compressed and renamed
 assets/favicon.svg
 ```
 
