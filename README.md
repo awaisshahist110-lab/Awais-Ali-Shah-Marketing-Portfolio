@@ -18,21 +18,22 @@ assets/favicon.svg
 
 ## Publishing it
 
-The site is live on GitHub Pages at
+The site is served by GitHub Pages from the root of the `gh-pages` branch:
 **https://awaisshahist110-lab.github.io/Awais-Ali-Shah-Marketing-Portfolio/**
 
-`.github/workflows/deploy-pages.yml` publishes it. Every push to the deployment
-branch uploads the repository root as a Pages artifact and deploys it, so there
-is nothing to build and nothing to upload by hand. To update the live site, edit
-the HTML or CSS, commit, push. The workflow takes about a minute.
+`.github/workflows/deploy-pages.yml` keeps that branch current. On every push to
+the deployment branch it mirrors the branch onto `gh-pages` with a single force
+push. The site is plain static files at the repository root, so there is nothing
+to build and nothing to upload by hand. To update the live site, edit the HTML or
+CSS, commit, push. It goes live about a minute later.
 
 `.nojekyll` is in the root so Pages serves the files as they are instead of
 running them through Jekyll.
 
-**One-time setup.** Pages has to be switched on by hand once: repository
-Settings, Pages, Source, pick **GitHub Actions**. The workflow cannot do this
-for itself, because creating a Pages site needs repository admin rights and the
-Actions token is never granted those. After that one change every push deploys.
+**If the URL returns 404.** Pushing a `gh-pages` branch to a public repository
+usually makes GitHub create the Pages site on its own. If it did not, set it once
+by hand: Settings, Pages, Source, Deploy from a branch, `gh-pages`, `/ (root)`.
+Nothing else changes; the workflow already keeps the branch up to date.
 
 **Custom domain.** Buy the domain, add a `CNAME` file in the repository root
 containing just the domain, then point the DNS at GitHub Pages: four `A` records

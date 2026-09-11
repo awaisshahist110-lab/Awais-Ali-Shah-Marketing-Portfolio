@@ -1,4 +1,4 @@
-name: Deploy site to GitHub Pages
+name: Publish the site to the gh-pages branch
 
 on:
   push:
@@ -8,39 +8,29 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
-# Let one deployment finish before the next starts, and never cancel a
-# run that is already publishing.
+# Let one publish finish before the next starts, and never cancel a run
+# that is already pushing.
 concurrency:
-  group: pages
+  group: publish-site
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  publish:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
-
-      - name: Configure Pages
-        # Pages must already be switched on for this repository with
-        # Settings, Pages, Source: GitHub Actions. This step cannot switch it
-        # on itself: creating a Pages site needs repository admin rights, and
-        # the Actions token is never granted those.
-        uses: actions/configure-pages@v5
-
-      - name: Upload the site as a Pages artifact
-        uses: actions/upload-pages-artifact@v3
         with:
-          # The site is plain static HTML at the repository root.
-          path: .
+          # A shallow clone cannot be pushed elsewhere: git rejects it with
+          # "shallow update not allowed".
+          fetch-depth: 0
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Mirror this branch onto gh-pages
+        # Pages serves the root of the gh-pages branch. The site is plain
+        # static files already sitting at the repository root, so gh-pages is
+        # just a mirror of this branch: nothing to build, nothing to strip.
+        # Pushing with GITHUB_TOKEN does not retrigger this workflow, so there
+        # is no loop.
+        run: git push --force origin "HEAD:refs/heads/gh-pages"
