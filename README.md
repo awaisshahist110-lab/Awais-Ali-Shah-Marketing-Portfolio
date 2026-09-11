@@ -29,6 +29,11 @@ the HTML or CSS, commit, push. The workflow takes about a minute.
 `.nojekyll` is in the root so Pages serves the files as they are instead of
 running them through Jekyll.
 
+**One-time setup.** Pages has to be switched on by hand once: repository
+Settings, Pages, Source, pick **GitHub Actions**. The workflow cannot do this
+for itself, because creating a Pages site needs repository admin rights and the
+Actions token is never granted those. After that one change every push deploys.
+
 **Custom domain.** Buy the domain, add a `CNAME` file in the repository root
 containing just the domain, then point the DNS at GitHub Pages: four `A` records
 for the apex (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`,
