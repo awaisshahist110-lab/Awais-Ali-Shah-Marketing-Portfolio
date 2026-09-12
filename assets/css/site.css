@@ -50,8 +50,8 @@ p:last-child{margin-bottom:0}
 .sec-ink h2,.sec-ink h3{color:#fff}
 
 .eyebrow{
-  font-size:15px;font-weight:700;letter-spacing:0.02em;
-  color:var(--accent);margin:0 0 18px;
+  font-size:18px;font-weight:700;letter-spacing:0.01em;
+  color:var(--accent);margin:0 0 16px;
 }
 .sec-ink .eyebrow{color:#FF8A5C}
 
@@ -129,9 +129,9 @@ p:last-child{margin-bottom:0}
   grid-template-columns:1fr auto;gap:20px;align-items:start;text-decoration:none;
 }
 .case:hover{background:#FAF8F4}
-.case-role{font-size:15px;font-weight:700;color:var(--accent);margin:0 0 10px;font-family:"Archivo",sans-serif}
+.case-role{font-size:17px;font-weight:700;color:var(--accent);margin:0 0 10px;font-family:"Archivo",sans-serif}
 .case p{font-size:18px;color:var(--ink-2);max-width:60ch;margin:12px 0 0}
-.case-go{font-family:"Archivo",sans-serif;font-size:15px;font-weight:700;color:var(--ink-3);white-space:nowrap;padding-top:6px;border-bottom:2px solid var(--rule)}
+.case-go{font-family:"Archivo",sans-serif;font-size:16px;font-weight:700;color:var(--ink-3);white-space:nowrap;padding-top:6px;border-bottom:2px solid var(--rule)}
 .case:hover .case-go{border-bottom-color:var(--accent)}
 .case:hover .case-go{color:var(--accent)}
 
@@ -191,7 +191,7 @@ p:last-child{margin-bottom:0}
   box-shadow:0 0 0 4px rgba(255,255,255,.85);
 }
 .ba-tag{
-  position:absolute;top:14px;font-family:"Archivo",sans-serif;font-size:13px;font-weight:700;
+  position:absolute;top:14px;font-family:"Archivo",sans-serif;font-size:14px;font-weight:700;
   background:rgba(23,24,28,.86);color:#fff;padding:5px 10px;pointer-events:none;
 }
 .ba-tag-l{left:14px}
@@ -208,7 +208,7 @@ p:last-child{margin-bottom:0}
   font-size:18px;font-weight:600;letter-spacing:-0.01em;
 }
 .links a:hover{color:var(--accent)}
-.links small{font-family:"Archivo",sans-serif;font-size:14px;font-weight:500;color:var(--ink-3);white-space:nowrap}
+.links small{font-family:"Archivo",sans-serif;font-size:15px;font-weight:500;color:var(--ink-3);white-space:nowrap}
 
 /* ---------- contact ---------- */
 .contact-list{margin:0;padding:0;list-style:none;border-top:2px solid var(--ink)}
@@ -216,6 +216,9 @@ p:last-child{margin-bottom:0}
 .contact-list b{font-family:"Archivo",sans-serif;font-size:16px;font-weight:700}
 .contact-list a{font-family:"Archivo",sans-serif;font-weight:600;font-size:19px;letter-spacing:-0.015em;text-decoration:none;border-bottom:1.5px solid var(--accent)}
 .contact-list a:hover{color:var(--accent)}
+/* The LinkedIn handle is one long unbreakable token; let it break rather
+   than push the page wider than the screen. */
+.contact-list a,.contact-list span{overflow-wrap:anywhere}
 .contact-list span{font-family:"Archivo",sans-serif;font-weight:600;font-size:19px;letter-spacing:-0.015em}
 
 /* ---------- footer ---------- */
@@ -224,7 +227,16 @@ p:last-child{margin-bottom:0}
 .foot a{color:#EFEDE8;text-decoration:none;font-family:"Archivo",sans-serif;font-weight:600;font-size:16px}
 .foot a:hover{color:var(--accent)}
 .foot-nav{display:flex;gap:22px;flex-wrap:wrap}
-.foot-note{font-family:"Archivo",sans-serif;font-size:14px;color:#71757D;margin-top:30px}
+.foot-note{font-family:"Archivo",sans-serif;font-size:15px;color:#71757D;margin-top:30px}
+
+/* ---------- fit band ---------- */
+.fit{
+  margin-top:clamp(38px,5vw,56px);padding-top:clamp(26px,3vw,34px);
+  border-top:1px solid var(--rule);
+}
+.fit-roles{margin:0 0 18px;display:flex;flex-wrap:wrap;gap:9px}
+.fit-roles .tag{margin:0;border-color:var(--ink);color:var(--ink);font-weight:700}
+.fit-note{font-size:18px;color:var(--ink-2);margin:0;max-width:66ch}
 
 /* ---------- misc ---------- */
 .note{
@@ -232,7 +244,7 @@ p:last-child{margin-bottom:0}
   font-size:18px;color:var(--ink-2);max-width:62ch;margin-top:26px;
 }
 .tag{
-  display:inline-block;font-size:15px;font-weight:600;color:var(--ink-2);
+  display:inline-block;font-size:16px;font-weight:600;color:var(--ink-2);
   border:1px solid var(--rule);padding:5px 11px;margin:0 7px 7px 0;
 }
 .anchor{scroll-margin-top:84px}
@@ -251,6 +263,11 @@ p:last-child{margin-bottom:0}
   .case{grid-template-columns:minmax(0,1fr)}
   .case-go{padding-top:0}
   body{font-size:18px}
+}
+
+@media (max-width:560px){
+  .contact-list li{grid-template-columns:minmax(0,1fr);gap:3px}
+  .contact-list b{color:var(--ink-2)}
 }
 
 @media (prefers-reduced-motion:reduce){
