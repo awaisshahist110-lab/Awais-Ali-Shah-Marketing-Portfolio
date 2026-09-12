@@ -131,7 +131,7 @@ p:last-child{margin-bottom:0}
 .case:hover{background:#FAF8F4}
 .case-role{font-size:17px;font-weight:700;color:var(--accent);margin:0 0 10px;font-family:"Archivo",sans-serif}
 .case p{font-size:18px;color:var(--ink-2);max-width:60ch;margin:12px 0 0}
-.case-go{font-family:"Archivo",sans-serif;font-size:16px;font-weight:700;color:var(--ink-3);white-space:nowrap;padding-top:6px;border-bottom:2px solid var(--rule)}
+.case-go{font-family:"Archivo",sans-serif;font-size:16px;font-weight:700;color:var(--ink-3);white-space:nowrap;padding-top:6px;border-bottom:2px solid var(--rule);display:inline-flex;align-items:center;gap:9px}
 .case:hover .case-go{border-bottom-color:var(--accent)}
 .case:hover .case-go{color:var(--accent)}
 
@@ -213,7 +213,7 @@ p:last-child{margin-bottom:0}
 /* ---------- contact ---------- */
 .contact-list{margin:0;padding:0;list-style:none;border-top:2px solid var(--ink)}
 .contact-list li{display:grid;grid-template-columns:130px minmax(0,1fr);gap:18px;padding:19px 0;border-bottom:1px solid var(--rule);align-items:baseline}
-.contact-list b{font-family:"Archivo",sans-serif;font-size:16px;font-weight:700}
+.contact-list b{font-family:"Archivo",sans-serif;font-size:16px;font-weight:700;display:flex;align-items:center;gap:11px}
 .contact-list a{font-family:"Archivo",sans-serif;font-weight:600;font-size:19px;letter-spacing:-0.015em;text-decoration:none;border-bottom:1.5px solid var(--accent)}
 .contact-list a:hover{color:var(--accent)}
 /* The LinkedIn handle is one long unbreakable token; let it break rather
@@ -237,6 +237,24 @@ p:last-child{margin-bottom:0}
 .fit-roles{margin:0 0 18px;display:flex;flex-wrap:wrap;gap:9px}
 .fit-roles .tag{margin:0;border-color:var(--ink);color:var(--ink);font-weight:700}
 .fit-note{font-size:18px;color:var(--ink-2);margin:0;max-width:66ch}
+
+/* ---------- icons ----------
+   Monoline, square caps and mitred joins so they sit in the same geometry
+   as the rules and borders rather than looking like imported clip art. */
+.ico{
+  width:30px;height:30px;display:block;
+  fill:none;stroke:var(--accent);stroke-width:1.75;
+  stroke-linecap:square;stroke-linejoin:miter;
+}
+.cap-ico{width:40px;height:40px;stroke-width:1.6;margin-bottom:18px}
+.ico-sm{width:20px;height:20px;stroke-width:1.9}
+.ico-arrow{
+  width:18px;height:18px;flex:none;
+  fill:none;stroke:currentColor;stroke-width:2;
+  stroke-linecap:square;stroke-linejoin:miter;
+  transition:transform .18s ease;
+}
+.case:hover .ico-arrow{transform:translateX(4px)}
 
 /* ---------- misc ---------- */
 .note{
