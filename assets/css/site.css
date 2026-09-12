@@ -96,6 +96,19 @@ p:last-child{margin-bottom:0}
 .btn-ghost{background:transparent;color:var(--ink)}
 .btn-ghost:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
 .sec-ink .btn-ghost{color:#fff;border-color:#6A6E76}
+
+/* ---------- accent closer ----------
+   One full colour moment per page, on the closing call to action. */
+.sec-accent{background:var(--accent);color:#FFF4F0;border-top:0}
+.sec-accent h2,.sec-accent h3{color:#fff}
+.sec-accent .eyebrow{color:#FFD9CC}
+.sec-accent .lede{color:#FFF4F0}
+.sec-accent .muted{color:#FFD9CC}
+.sec-accent .btn-ghost{color:#fff;border-color:rgba(255,255,255,.55)}
+.sec-accent .btn-ghost:hover{background:#fff;color:var(--accent);border-color:#fff}
+.sec-accent .stats{background:var(--accent-deep);border-color:var(--accent-deep)}
+.sec-accent .stat{background:var(--accent-deep)}
+.sec-accent .stat span{color:#FFD4C6}
 .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
 
 /* ---------- hero ---------- */
@@ -157,6 +170,7 @@ p:last-child{margin-bottom:0}
 
 /* ---------- case study sections ---------- */
 .study{padding:var(--step) 0;border-top:1px solid var(--rule)}
+.study-alt{background:var(--sand)}
 .study-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:start}
 .study-head h2{max-width:15ch}
 .study-meta{margin:22px 0 0;padding:0;list-style:none;font-family:"Archivo",sans-serif;font-size:16px}
@@ -168,8 +182,11 @@ p:last-child{margin-bottom:0}
 .shots-2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .shots-3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .shot figure{margin:0}
-.shot img{border:1px solid var(--rule);background:var(--sand)}
+.shot img{border:1px solid var(--rule);background:var(--sand);padding:10px}
 .shot figcaption{font-size:16px;color:var(--ink-2);margin-top:10px;line-height:1.45}
+/* Even row: sources have different proportions, so crop them to one shape
+   and the captions line up instead of stepping down the row. */
+.shots-even .shot img{aspect-ratio:16/10;object-fit:cover;width:100%}
 .shot figcaption a{color:var(--ink);font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--accent);white-space:nowrap}
 .shot figcaption a:hover{color:var(--accent)}
 
@@ -265,7 +282,33 @@ p:last-child{margin-bottom:0}
   display:inline-block;font-size:16px;font-weight:600;color:var(--ink-2);
   border:1px solid var(--rule);padding:5px 11px;margin:0 7px 7px 0;
 }
-.anchor{scroll-margin-top:84px}
+.anchor{scroll-margin-top:132px}
+
+/* ---------- section rail ---------- */
+.rail{
+  position:sticky;top:68px;z-index:40;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:saturate(1.4) blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.rail-in{
+  width:var(--shell);margin:0 auto;
+  display:flex;gap:28px;overflow-x:auto;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.rail-in::-webkit-scrollbar{display:none}
+.rail a{
+  font-family:"Archivo",sans-serif;font-size:15px;font-weight:700;
+  letter-spacing:-0.01em;color:var(--ink-3);text-decoration:none;
+  padding:15px 0;white-space:nowrap;border-bottom:2px solid transparent;
+}
+.rail a:hover{color:var(--ink)}
+.rail a.is-current{color:var(--accent);border-bottom-color:var(--accent)}
+@media (max-width:900px){
+  .rail{position:static}
+  .rail-in{gap:20px}
+  .anchor{scroll-margin-top:20px}
+}
 
 :focus-visible{outline:2.5px solid var(--accent);outline-offset:3px}
 
