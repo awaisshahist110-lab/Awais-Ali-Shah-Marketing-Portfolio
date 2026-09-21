@@ -5,14 +5,13 @@ Static site. No build step, no dependencies, no framework. Open `index.html` in 
 ## Files
 
 ```
-index.html          Home
-work.html           All four case studies plus client campaigns and brand development
-capabilities.html   What you can own, grouped into six areas
+index.html          Home, the senior B2B copywriter positioning
+work.html           Case studies: Xgrid, Tinova, DieselGeeks, brand and website work, client campaigns
 about.html          Background and track record
 contact.html        Contact details and fit criteria
 assets/css/site.css All styling, design tokens at the top of the file
 assets/js/site.js   Before/after comparison sliders
-assets/img/         50 screenshots, compressed and renamed
+assets/img/         48 screenshots, compressed and renamed
 assets/favicon.svg
 ```
 
@@ -44,7 +43,7 @@ Enforce HTTPS once the certificate is issued. `awaisalishah.com` if it is free.
 
 ## Things to change before you publish
 
-1. **Email.** `awaisshah.IST@hotmail.com` appears in the footer and on `contact.html`. Once the domain is live, set up `awais@yourdomain.com` and replace it. Search and replace across all five HTML files.
+1. **Email.** `awaisshah.IST@hotmail.com` appears in the footer and on `contact.html`. Once the domain is live, set up `awais@yourdomain.com` and replace it. Search and replace across all four HTML files.
 2. **Tinova results.** The Tinova section on `work.html` currently presents cadences and targets, labelled as targets. When you have real outcome numbers, replace the four boxes under "The operating system I run" with results and delete the sentence above them that flags them as targets.
 3. **Missing proof.** The outbound, inbound and webinar sections in your source document were empty. If you have screenshots for those, drop them into `assets/img/` and add a `.shot` figure block. Copy any existing one as a template.
 4. **LinkedIn URL.** Set to `linkedin.com/in/awaisalishah`. Confirm that is your current handle.
