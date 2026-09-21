@@ -8,7 +8,7 @@ Static site. No build step, no dependencies, no framework. Open `index.html` in 
 index.html          Home, the senior B2B copywriter positioning
 work.html           Case studies: Xgrid, Tinova, DieselGeeks, brand and website work, client campaigns
 contact.html        Contact details and fit criteria
-assets/css/site.css All styling, design tokens at the top of the file
+assets/css/site.css Design system: palette, type scale, spacing, all components
 assets/js/site.js   Before/after comparison sliders
 assets/img/         48 screenshots, compressed and renamed
 assets/favicon.svg
