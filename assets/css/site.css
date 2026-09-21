@@ -56,9 +56,9 @@ h1,h2,h3,h4,.sans,.nav,.record,.btn,.eyebrow,.stat,.tag,.lede{
 h1,h2,h3{margin:0;letter-spacing:-0.028em;font-weight:800;line-height:1.06}
 /* Headings sit in half-width grid columns all over this site. Capping the
    measure stops a long one turning into a five line wall. */
-h1{max-width:18ch}
-h2{max-width:22ch}
-h3{max-width:28ch}
+h1{max-width:16ch}
+h2{max-width:18ch}
+h3{max-width:30ch}
 
 /* Vertical rhythm utilities, so spacing comes from the scale rather than
    from a different hand-picked pixel value at every call site. */
@@ -74,7 +74,7 @@ h3{font-size:var(--t-xl);line-height:1.15;letter-spacing:-0.02em}
 h4{font-size:var(--t-lg);line-height:1.25;font-weight:700;letter-spacing:-0.01em;margin:0}
 .study h3,.sec h3{margin-top:var(--sp-4)}
 .study h3:first-child,.sec h3:first-child,.two h3,.lead h3,.steps h4{margin-top:0}
-p{margin:0 0 1.05em;max-width:72ch}
+p{margin:0 0 1.05em}
 p:last-child{margin-bottom:0}
 
 .shell{width:var(--shell);margin:0 auto}
@@ -92,7 +92,7 @@ p:last-child{margin-bottom:0}
 
 .lede{font-size:var(--t-lead);line-height:1.45;font-weight:500;letter-spacing:-0.015em;color:var(--ink)}
 .sec-ink .lede{color:#EFEDE8}
-.prose{max-width:66ch}
+.prose{max-width:74ch}
 .muted{color:var(--ink-2)}
 .sec-ink .muted{color:#A9ADB5}
 
@@ -148,7 +148,7 @@ p:last-child{margin-bottom:0}
 
 /* ---------- hero ---------- */
 .hero{padding:clamp(56px,7vw,92px) 0 clamp(44px,5vw,60px)}
-.hero h1{max-width:20ch}
+.hero h1{max-width:16ch}
 .hero .lede{margin-top:26px;max-width:58ch}
 .hero-split{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(30px,5vw,70px);align-items:end}
 .hero-split h1{max-width:16ch}
@@ -207,7 +207,7 @@ p:last-child{margin-bottom:0}
 .study{padding:var(--step) 0;border-top:1px solid var(--rule)}
 .study-alt{background:var(--sand)}
 .study-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:start}
-.study-head h2{max-width:20ch}
+.study-head h2{max-width:18ch}
 /* Keep 'C-suite' and similar from splitting at the hyphen. */
 .study-head h2,h1,h2{hyphens:manual}
 .study-meta{margin:22px 0 0;padding:0;list-style:none;font-family:"Archivo",sans-serif;font-size:var(--t-sm)}
@@ -312,13 +312,21 @@ p:last-child{margin-bottom:0}
 .deck{
   font-family:"Source Serif 4",Georgia,serif;
   font-size:var(--t-lead);line-height:1.5;font-weight:400;
-  color:var(--ink);max-width:60ch;margin:var(--sp-2) 0 0;
+  color:var(--ink);margin:var(--sp-2) 0 0;
 }
 .sec-ink .deck,.sec-accent .deck{color:#fff}
 
-/* ---------- section head: kicker, heading, deck, with room under it ---------- */
-.head{margin-bottom:var(--sp-4)}
+/* ---------- section head ----------
+   Heading on the left, supporting copy on the right, so the row uses the
+   full container instead of hugging the left edge and leaving dead space. */
+.head{
+  display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);
+  gap:clamp(36px,5vw,88px);align-items:start;margin-bottom:var(--sp-4);
+}
+.head-solo{display:block}
 .head .eyebrow{margin-bottom:var(--sp-1)}
+.head-r .deck{margin-top:0}
+.head-r .deck + .deck{margin-top:var(--sp-2)}
 
 /* ---------- lead grid (what I can lead directly) ---------- */
 .lead-grid{
@@ -411,6 +419,8 @@ p:last-child{margin-bottom:0}
 
 @media (max-width:900px){
   .two,.three,.two-side,.study-head,.cap,.shots-2,.shots-3{grid-template-columns:minmax(0,1fr)}
+  .head{grid-template-columns:minmax(0,1fr);gap:var(--sp-2)}
+  h1,h2,h3{max-width:none}
   .lead-grid{grid-template-columns:minmax(0,1fr)}
   .lead:nth-child(odd),.lead:nth-child(even){padding-left:0;padding-right:0;border-left:0}
   .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
