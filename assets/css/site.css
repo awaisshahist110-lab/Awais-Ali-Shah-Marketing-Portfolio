@@ -4,11 +4,12 @@
 
 :root{
   /* Four colours carry the whole site: a warm paper ground, near-black,
-     one burnt-orange accent used sparingly, and a warm grey. Everything else
+     one slate-blue accent used sparingly, and a warm grey. Everything else
      is a tint of those, so nothing competes for attention. */
-  --accent:#ac5715;        /* backgrounds: white body copy clears AA on it */
-  --accent-ink:#9c4d11;    /* accent as text on the paper ground, clears AA */
-  --accent-deep:#8a4310;
+  --accent:#2f5673;        /* backgrounds: white body copy clears AA on it */
+  --accent-ink:#28495f;    /* accent as text on the paper ground, clears AA */
+  --accent-deep:#1f3a4c;
+  --accent-lite:#9db8cf;   /* the accent on a black band, where it must lift */
   --ink:#16171a;
   --paper:#f7f5f2;
   --sand:#ebe7e1;
@@ -67,7 +68,7 @@ p:last-child{margin-bottom:0}
 .sec{padding:var(--step) 0}
 .sec-paper{background:var(--paper);color:var(--ink)}
 .sec-ink{background:var(--ink);color:#eeebe6}
-.sec-accent{background:var(--accent);color:#fdf7f1}
+.sec-accent{background:var(--accent);color:#f4f8fb}
 .sec-sand{background:var(--sand);color:var(--ink)}
 
 .sec-ink h1,.sec-ink h2,.sec-ink h3,.sec-ink h4,
@@ -85,13 +86,13 @@ p:last-child{margin-bottom:0}
   font-size:var(--t-meta);font-weight:800;letter-spacing:0.14em;
   text-transform:uppercase;margin:0 0 var(--sp-2);color:var(--accent-ink);
 }
-.sec-ink .kicker{color:#e8a271}
-.sec-accent .kicker{color:#fcecdc}
+.sec-ink .kicker{color:var(--accent-lite)}
+.sec-accent .kicker{color:#dae7f2}
 
 .lead{font-size:var(--t-lead);line-height:1.35;font-weight:600;letter-spacing:-0.02em;max-width:24ch}
 .body{font-size:var(--t-body);line-height:1.6;max-width:62ch;color:inherit}
 .body-muted{color:var(--ink-2)}
-.sec-ink .body-muted,.sec-accent .body-muted{color:#c3bdb4}
+.sec-ink .body-muted,.sec-accent .body-muted{color:#c2cedb}
 
 /* two column: heading left, supporting copy right */
 .split{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:start}
@@ -135,12 +136,16 @@ p:last-child{margin-bottom:0}
 .sec-accent .btn-line:hover{background:#fff;color:var(--accent);border-color:#fff}
 
 /* ---------- roles, 2 by 2 ---------- */
-.roles{margin-top:var(--sp-4);border-top:1px solid var(--rule-dark)}
+.roles{margin-top:var(--sp-4);border-top:2px solid var(--ink)}
 .roles-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
-.role{padding:var(--sp-3) 0;border-bottom:1px solid var(--rule-dark)}
-.role:nth-child(odd){padding-right:clamp(24px,4vw,64px);border-right:1px solid var(--rule-dark)}
+.role{padding:var(--sp-3) 0;border-bottom:1px solid var(--rule)}
+.role:nth-child(odd){padding-right:clamp(24px,4vw,64px);border-right:1px solid var(--rule)}
 .role:nth-child(even){padding-left:clamp(24px,4vw,64px)}
-.role b{display:block;font-size:var(--t-meta);font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#e8a271;margin-bottom:12px}
+.role b{display:block;font-size:var(--t-meta);font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:12px}
+/* same block on a black band */
+.sec-ink .roles{border-top-color:var(--rule-dark)}
+.sec-ink .role,.sec-ink .role:nth-child(odd){border-color:var(--rule-dark)}
+.sec-ink .role b{color:var(--accent-lite)}
 .role span{display:block;font-size:var(--t-role);font-weight:800;letter-spacing:-0.035em;line-height:1}
 
 /* ---------- proof metrics ---------- */
@@ -174,7 +179,7 @@ p:last-child{margin-bottom:0}
 /* ---------- strategy cards ---------- */
 .cards{margin-top:var(--sp-4);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,3vw,40px)}
 .card{padding:clamp(32px,4vw,56px)}
-.card-accent{background:var(--accent);color:#fdf7f1}
+.card-accent{background:var(--accent);color:#f4f8fb}
 .card-accent h3{color:#fff}
 .card-sand{background:var(--sand);color:var(--ink)}
 .card-num{font-size:var(--t-meta);font-weight:800;letter-spacing:0.08em;margin:0 0 var(--sp-4);opacity:.85}
@@ -225,11 +230,11 @@ p:last-child{margin-bottom:0}
 .compare-row em{display:none}
 
 .results{margin-top:var(--sp-5);background:var(--ink);color:#eeebe6;padding:clamp(36px,4vw,64px)}
-.results .kicker{color:#e8a271;margin-bottom:var(--sp-3)}
+.results .kicker{color:var(--accent-lite);margin-bottom:var(--sp-3)}
 .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:1px solid rgba(255,255,255,.28)}
 .results-grid div{padding:var(--sp-3) clamp(18px,2vw,32px) var(--sp-3) 0}
 .results-grid div + div{border-left:1px solid rgba(255,255,255,.28);padding-left:clamp(18px,2vw,32px)}
-.results-grid b{display:block;font-size:var(--t-num);font-weight:800;letter-spacing:-0.045em;line-height:0.92;color:var(--accent)}
+.results-grid b{display:block;font-size:var(--t-num);font-weight:800;letter-spacing:-0.045em;line-height:0.92;color:var(--accent-lite)}
 .results-grid span{display:block;margin-top:var(--sp-2);font-size:var(--t-meta);font-weight:700;max-width:22ch}
 
 /* Screenshots sit two to a row, every frame the same size, caption beneath.
