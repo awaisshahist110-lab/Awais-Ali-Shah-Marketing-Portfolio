@@ -218,11 +218,15 @@ p:last-child{margin-bottom:0}
 .results-grid b{display:block;font-size:var(--t-num);font-weight:800;letter-spacing:-0.045em;line-height:0.92;color:var(--clay)}
 .results-grid span{display:block;margin-top:var(--sp-2);font-size:var(--t-meta);font-weight:700;max-width:22ch}
 
-/* Screenshots run large, one idea per row, with the caption beneath. */
-.shots{margin-top:var(--sp-5);display:grid;gap:var(--sp-4)}
+/* Screenshots sit two to a row, every frame the same size, caption beneath. */
+.shots{margin-top:var(--sp-5);display:grid;gap:var(--sp-4);grid-template-columns:repeat(2,minmax(0,1fr))}
 .shots-2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .shot figure{margin:0}
-.shot img{width:100%;border:1px solid var(--rule);background:var(--white);padding:clamp(12px,1.4vw,22px)}
+/* One fixed frame for every screenshot: contain, so nothing is cropped or stretched. */
+.shot img{
+  display:block;width:100%;aspect-ratio:4/3;object-fit:contain;
+  border:1px solid var(--rule);background:var(--white);padding:clamp(12px,1.4vw,22px)
+}
 .shot figcaption{margin-top:var(--sp-1);font-size:var(--t-meta);font-weight:700;color:var(--ink-2)}
 
 .links{margin:var(--sp-3) 0 0;padding:0;list-style:none;border-top:2px solid var(--ink)}
@@ -279,7 +283,7 @@ p:last-child{margin-bottom:0}
 @media (max-width:900px){
   :root{--pad:20px;--step:clamp(72px,12vw,80px)}
   .split,.split-even,.hero-foot,.roles-grid,.metrics,.grid2,.spec-wrap,
-  .cards,.case-head,.shots-2,.spec-row,.results-grid{grid-template-columns:minmax(0,1fr)}
+  .cards,.case-head,.shots,.spec-row,.results-grid{grid-template-columns:minmax(0,1fr)}
   .role:nth-child(odd),.cell:nth-child(odd){padding-right:0;border-right:0}
   .role:nth-child(even),.cell:nth-child(even){padding-left:0}
   .metric + .metric,.results-grid div + div{border-left:0;padding-left:0;border-top:1px solid var(--rule)}
